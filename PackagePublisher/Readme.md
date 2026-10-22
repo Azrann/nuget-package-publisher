@@ -1,60 +1,62 @@
+**Languages:** [English](Readme.md) · [Español](README.es.md)
+
 # PackagePublisher
 
-Utilidades de consola para automatizar incremento de versión, compilación, empaquetado y publicación NuGet de proyectos, con limpieza posterior de artefactos.
+Console utilities to automate project version increments, builds, packaging, and NuGet publishing, followed by artifact cleanup.
 
-Documentación basada en los archivos locales revisados el 21 de octubre de 2026.
+Documentation based on local files reviewed on 21 October 2026.
 
 <!-- BEGIN project-context -->
 
-## Antigüedad y evidencia
+## Historical dates and evidence
 
-**Año de referencia de esta versión: 2019.** Se toma el archivo de código o configuración más reciente con una fecha histórica recuperable; no se ha podido confirmar la fecha exacta de creación.
+**Reference year for this version: 2019.** This uses the most recent source or configuration file with a recoverable historical date; the exact creation date could not be confirmed.
 
-- Archivo más reciente datable: **2019-04-01**, [`PackagePublisher/PackagePublisherFramework/Program.cs`](PackagePublisherFramework/Program.cs); fecha de modificación conservada.
-- Referencia adicional: destino `netcoreapp2.1` en [`PackagePublisher/PackagePublisher/PackagePublisher.csproj`](PackagePublisher/PackagePublisher.csproj); su [versión estable se publicó el 2018-05-30](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core). Es una pista de generación tecnológica; pudieron existir versiones preliminares anteriores.
+- Most recent datable file: **2019-04-01**, [`PackagePublisher/PackagePublisherFramework/Program.cs`](PackagePublisherFramework/Program.cs); preserved modification timestamp.
+- Additional reference: target `netcoreapp2.1` in [`PackagePublisher/PackagePublisher/PackagePublisher.csproj`](PackagePublisher/PackagePublisher.csproj); its [stable release was published on 2018-05-30](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core). This indicates the technology generation; earlier preview releases may have existed.
 
-## Por qué merece la pena mirarlo
+## Why this is worth exploring
 
-Encadena modificación de versión, compilación, empaquetado y publicación NuGet. Es interesante leerlo como automatización del proceso de entrega y observar qué decisiones estaban ligadas al entorno original.
+Chains version modification, compilation, packaging, and NuGet publishing. Read it as delivery process automation and identify which decisions were tied to the original environment.
 
-Puntos de entrada al código:
+Code entry points:
 
 - [`PackagePublisherFramework/Program.cs`](PackagePublisherFramework/Program.cs)
 - [`PackagePublisher/Program.cs`](PackagePublisher/Program.cs)
 
 <!-- END project-context -->
 
-## Estructura y responsabilidades
+## Structure and responsibilities
 
-| Ruta | Responsabilidad |
+| Path | Responsibility |
 | --- | --- |
-| `PackagePublisher/` | Versión del programa con destino .NET Core 2.1. |
-| `PackagePublisherFramework/` | Versión .NET Framework 4.7.2 y artefactos de publicación ClickOnce. |
-| `PackagePublisher.sln` | Solución de ambas variantes. |
+| `PackagePublisher/` | Program variant targeting .NET Core 2.1. |
+| `PackagePublisherFramework/` | .NET Framework 4.7.2 variant and ClickOnce publish artifacts. |
+| `PackagePublisher.sln` | Solution containing both variants. |
 
-## Tecnologías y requisitos
+## Technologies and requirements
 
-Windows, SDK .NET Core 2.1 o herramientas .NET Framework 4.7.2, MSBuild/NuGet y acceso al feed de destino según la variante.
+Windows, the .NET Core 2.1 SDK or .NET Framework 4.7.2 tools, MSBuild/NuGet, and destination feed access depending on the variant.
 
-Destinos leídos de los proyectos: `netcoreapp2.1`, `v4.7.2`.
+Targets read from project files: `netcoreapp2.1`, `v4.7.2`.
 
-## Preparación y arranque
+## Setup and startup
 
-Abrir PackagePublisher.sln y compilar la variante elegida después de revisar Program.cs. Main modifica el archivo de proyecto, ejecuta procesos de compilación/publicación y borra artefactos; no se ejecutó automáticamente.
+Open PackagePublisher.sln and build the chosen variant after reviewing Program.cs. Main modifies the project file, executes build/publish processes, and deletes artifacts; it was not run automatically.
 
-Soluciones presentes: `PackagePublisher.sln`.
+Solutions present: `PackagePublisher.sln`.
 
-## Configuración e integraciones
+## Configuration and integrations
 
-Revisar rutas locales, nombre del proyecto, comandos NuGet, origen de paquetes y autenticación. La carpeta incluye un certificado temporal PFX y un perfil .pubxml.user.
+Review local paths, project name, NuGet commands, package source, and authentication. The folder includes a temporary PFX certificate and a .pubxml.user profile.
 
-## Estado de esta copia
+## Status of this copy
 
-Relacionado con los ejecutables PackagePublisherFramework.exe copiados en proyectos Mentor y con la colección MyPackages. Las instrucciones existentes están ligadas al entorno original y requieren adaptación.
+Related to the PackagePublisherFramework.exe copies in Mentor projects and the MyPackages collection. Existing instructions are tied to the original environment and require adaptation.
 
-La revisión fue estática: no se restauraron dependencias, no se compiló ni se ejecutaron aplicaciones o pruebas. Los comandos anteriores son instrucciones de preparación, no resultados de validación. Las versiones indicadas son las del código conservado.
+The review was static: dependencies were not restored, and applications and tests were neither built nor run. The commands above are setup instructions, not validation results. Listed versions describe the preserved code.
 
 
-## Copia pública
+## Public copy
 
-Las credenciales originales se han retirado o sustituido por `REPLACE_WITH_YOUR_VALUE`. Los datos locales, sesiones, certificados privados y perfiles de despliegue se omiten. Configurar servicios y credenciales propios antes de ejecutar. La compilación y el funcionamiento con servicios externos no se han validado.
+Original credentials have been removed or replaced with `REPLACE_WITH_YOUR_VALUE`. Local data, sessions, private certificates, and deployment profiles are omitted. Configure your own services and credentials before running. Building and operation with external services have not been validated.
